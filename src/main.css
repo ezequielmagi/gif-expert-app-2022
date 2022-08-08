@@ -1,0 +1,23 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.cardItem{
+    background-color: grey;
+    color: aliceblue;
+    width: 200px;
+    height: 230px;
+}
+
+.cardItem img{
+    width: 200px;
+    height: 200px;
+}
+
+.cardGrid{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
