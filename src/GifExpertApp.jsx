@@ -1,10 +1,12 @@
 import React from 'react'
 import { useState } from 'react';
 import { AddCategory } from './components/AddCategory';
+import { GifGrid } from './components/GifGrid';
+import 
 
 export const GifExpertApp = () => {
 
-  const [categories, setCategories] = useState([ 'One punch', 'GohstBusters' ])
+  const [categories, setCategories] = useState([  ])
 
   const onAddCategory = (newCategory) => {
     console.log(newCategory)
@@ -13,30 +15,33 @@ export const GifExpertApp = () => {
 
       if( lowCategories.includes(newCategory.toLowerCase()) ) return
         // if( inputValue.trim().length <= 1 ) return //en esta linea controlamos que la longitud del nombre no sea menor a un caracter o realicen busquedas vacias
-        setCategories( [ ...categories, newCategory ] )   
+//        setCategories( [ ...categories, newCategory ] )   
+        setCategories( [newCategory ])   
+
         // setCategories( cat => [...cat, newCategory] )
   }
 
   return (
     <>
-      {/* Título */}
+    
       <h1>GifExpertApp</h1>
 
-      {/* Input */}
+     
       <AddCategory 
             //  setCategories={setCategories} Esta fue la primer forma. Ahora la idea es que el componente sea reutilizable
         onNewCategory={ onAddCategory }
       />
 
-      {/* Listado de gif */}
-      <ol>
-        {
-          categories.map( categorie => {
-            return <li key={categorie} > { categorie } </li>
-          } )
-        }
-      </ol>
-        {/* gif item */}
+      
+   
+          {
+            categories.map( category => (
+              <GifGrid key={category} category={category}/>
+            )
+            )
+          }
+      
+      
 
     </>
   )
